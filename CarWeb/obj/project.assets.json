@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Archivos\\HealthEquity\\CarsAPI\\CarWeb\\CarWeb.csproj",
+      "projectUniqueName": "D:\\Evert\\Github\\CarsAPI\\CarWeb\\CarWeb.csproj",
       "projectName": "CarWeb",
-      "projectPath": "D:\\Archivos\\HealthEquity\\CarsAPI\\CarWeb\\CarWeb.csproj",
+      "projectPath": "D:\\Evert\\Github\\CarsAPI\\CarWeb\\CarWeb.csproj",
       "packagesPath": "C:\\Users\\evert\\.nuget\\packages\\",
-      "outputPath": "D:\\Archivos\\HealthEquity\\CarsAPI\\CarWeb\\obj\\",
+      "outputPath": "D:\\Evert\\Github\\CarsAPI\\CarWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
