@@ -1,0 +1,95 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="card-group">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 id="Make" class="card-title"></h5>
+            <input type="hidden" id="Price" />
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Model:</strong><div id="Model"></div></li>
+            <li class="list-group-item"><strong>Year:</strong><div id="Year"></div></li>
+            <li class="list-group-item"><strong>Doors:</strong><div id="Doors"></div></li>
+            <li class="list-group-item"><strong>Color:</strong><div id="Color"></div></li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="card-header text-center">
+            Guess the price
+        </div>
+        <div class="card-body mb-12 row text-center">
+            <div class="col-6">
+                <label for="inputPrice" class="visually-hidden"></label>
+                <input class="form-control" id="tryPrice" placeholder="Price to Guess">
+            </div>
+            <div class="col-6">
+                <button id="tryButton" type="submit" class="btn btn-primary col-12">Try</button>
+            </div>
+        </div>
+        <div class="card-body mb-12 row text-center">
+            <label id="message" class="fw-bold">Hint Message</label>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            LoadCarInfo();
+        })
+
+        function LoadCarInfo() {
+            let baseUrl = "https://localhost:7125/api/";
+            let myUrl = baseUrl + "cars/randomCar";
+
+            $.ajax({
+                type: 'GET',
+                url: myUrl,
+                dataType: 'json',
+                success: function (data) {
+                    $('#Make').append(data.make);
+                    $('#Model').append(data.model);
+                    $('#Year').append(data.year);
+                    $('#Doors').append(data.doors);
+                    $('#Color').append(data.color);
+                    $('#Price').val(data.price);
+                },
+                failure: function (r) {
+                    console.log(r);
+                    alert("There is a failure, check the console logs.")
+                },
+                error: function (r) {
+                    console.log(r);
+                    alert("There is an Error, check the console logs.")
+                }
+            })
+        }
+
+        $("#tryButton").click(function () {
+            debugger;
+            let vPrice = parseInt($('#Price').val());
+            let tryPrice = parseInt($('#tryPrice').val());
+
+            clearMessageClass();
+            if(vPrice == tryPrice) {
+                $('#message').text('Great job, You got it!');
+            } else if (tryPrice > vPrice) {
+                $('#message').text('The input Price is Higher than the real one, Try it again!');
+                $('#message').addClass('text-success');
+            } else {
+                $('#message').text('The input Price is Lower than the real one, Try it again!');
+                $('#message').addClass('text-danger');
+            }
+        });
+
+        function clearMessageClass() {
+            $('#message').removeClass('text-success');
+            $('#message').removeClass('text-danger');
+        }
+    </script>
+}

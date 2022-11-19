@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "9o3e2uEZk5EitDpnuwYPUGox7eqDnIdZiT1UhDUPR6n05Rb8g7tUW0H5zen5yxZtevvLX75ohjnZGhOipb1RtA==",
+  "success": true,
+  "projectFilePath": "D:\\Archivos\\HealthEquity\\CarsAPI\\CarWeb\\CarWeb.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.sitefinity.com/nuget'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}
